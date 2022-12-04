@@ -1,4 +1,4 @@
-import express from 'express';
+import express from "express";
 import cors from "cors";
 import mysql from "mysql";
 
@@ -8,10 +8,10 @@ app.use(express.json());
 app.use(cors());
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "test",
+  host: "mogo", //localhost
+  user: "id19957532_mogo_user", //root
+  password: "vq84qe|(t5iFKgUn", //""
+  database: "id19957532_mogo", //test
 });
 
 let insert = "INSERT INTO messages (name,email,message)  VALUES (?,?,?)";
