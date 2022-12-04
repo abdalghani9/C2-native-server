@@ -1,7 +1,6 @@
 const express = require("express");
-
-const mysql = require("mysql");
 const cors = require("cors");
+const mysql = require("mysql");
 
 const app = express();
 
@@ -17,10 +16,6 @@ const db = mysql.createConnection({
 
 let insert = "INSERT INTO messages (name,email,message)  VALUES (?,?,?)";
 
-app.get("/send", (req, res) => {
-  res.end("Server is on");
-});
-
 app.post("/send", (req, res) => {
   const uname = req.body.uname;
   const email = req.body.email;
@@ -28,6 +23,12 @@ app.post("/send", (req, res) => {
 
   db.query(insert, [uname, email, message], (err, result) => {
     if (err) throw err;
+    if (result) {
+      console.log(result);
+      res.send(result);
+    } else {
+      console.log("no result");
+    }
   });
 });
 
