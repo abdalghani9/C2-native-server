@@ -17,10 +17,10 @@ const db = mysql.createConnection({
 
 let insert = "INSERT INTO messages (name,email,message)  VALUES (?,?,?)";
 
-app.get("/send", (req, res) => {
-  res.send("Welcome to send page");
-  res.end();
-});
+// app.get("/send", (req, res) => {
+//   res.send("Welcome to send page");
+//   res.end();
+// });
 
 app.post("/send", (req, res) => {
   const uname = req.body.uname;
