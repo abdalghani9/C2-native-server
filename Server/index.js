@@ -1,6 +1,6 @@
-const express = require("express");
-const cors = require("cors");
-const mysql = require("mysql");
+import express from 'express';
+import cors from "cors";
+import mysql from "mysql";
 
 const app = express();
 
@@ -16,9 +16,10 @@ const db = mysql.createConnection({
 
 let insert = "INSERT INTO messages (name,email,message)  VALUES (?,?,?)";
 
-app.get("/send",(req,res)=>{
-  res.write("Welcome to send page");
-})
+app.get("/send", (req, res) => {
+  res.send("Welcome to send page");
+  res.end();
+});
 
 app.post("/send", (req, res) => {
   const uname = req.body.uname;
