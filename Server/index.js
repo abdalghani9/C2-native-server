@@ -16,6 +16,10 @@ const db = mysql.createConnection({
 
 let insert = "INSERT INTO messages (name,email,message)  VALUES (?,?,?)";
 
+app.get("/send",(req,res)=>{
+  res.write("Welcome to send page");
+})
+
 app.post("/send", (req, res) => {
   const uname = req.body.uname;
   const email = req.body.email;
