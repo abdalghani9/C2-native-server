@@ -25,7 +25,7 @@ const db = mysql.createConnection({
 
 let insert = "INSERT INTO messages (name,email,message)  VALUES (?,?,?)";
 
-app.post("/send", (req, res) => {
+app.post("/send", cors(), (req, res) => {
   const uname = req.body.uname;
   const email = req.body.email;
   const message = req.body.message;
