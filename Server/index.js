@@ -1,13 +1,23 @@
 import express from "express";
 import mysql from "mysql";
-const cors=require("cors");
-const corsOptions ={
-   origin:'*', 
-   credentials:true,            //access-control-allow-credentials:true
-   optionSuccessStatus:200,
-}
-app.use(cors(corsOptions)) // Use this after the variable declaration
+const cors = require("cors");
+// const corsOptions ={
+//    origin:'*',
+//    credentials:true,            
+//    optionSuccessStatus:200,
+// }
+// app.use(cors(corsOptions)) 
 const app = express();
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authortization"
+  );
+  res.setHeader("Acces-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
+  next();
+});
 
 app.use(express.json());
 
@@ -21,7 +31,6 @@ const db = mysql.createConnection({
 });
 
 let insert = "INSERT INTO messages (name,email,message)  VALUES (?,?,?)";
-
 
 app.post("/send", (req, res) => {
   const uname = req.body.uname;
