@@ -34,10 +34,6 @@ const db = mysql.createConnection({
 
 let insert = "INSERT INTO messages (name,email,message)  VALUES (?,?,?)";
 
-app.get("/send", (req, res) => {
-  res.send("it's running");
-  res.end();
-});
 
 app.post("/send", (req, res) => {
   const uname = req.body.uname;
@@ -53,6 +49,11 @@ app.post("/send", (req, res) => {
       console.log("no result");
     }
   });
+});
+
+app.get("/send", (req, res) => {
+  res.send("it's running");
+  res.end();
 });
 
 app.listen(PORT, () => {
