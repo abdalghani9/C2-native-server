@@ -3,6 +3,7 @@ import cors from "cors";
 import mysql from "mysql";
 // import "./GrantAccess";
 
+const PORT = process.env.PORT || 3001;
 const app = express();
 // app.use(
 //   cors({
@@ -42,7 +43,7 @@ app.post("/send", (req, res) => {
   const uname = req.body.uname;
   const email = req.body.email;
   const message = req.body.message;
-
+  console.log(req.port);
   db.query(insert, [uname, email, message], (err, result) => {
     if (err) throw err;
     if (result) {
@@ -54,6 +55,6 @@ app.post("/send", (req, res) => {
   });
 });
 
-app.listen(3001, () => {
-  console.log("server is running");
+app.listen(PORT, () => {
+  console.log(`server is running on port ${PORT}`);
 });
