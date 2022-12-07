@@ -1,16 +1,14 @@
 import express from "express";
-import cors from "cors";
 import mysql from "mysql";
-
+const cors=require("cors");
+const corsOptions ={
+   origin:'*', 
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
+app.use(cors(corsOptions)) // Use this after the variable declaration
 const app = express();
-// app.use(cors());
-app.use(
-  cors({
-    origin: `${process.env.CLIENT_URL}`,
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true,
-  })
-);
+
 app.use(express.json());
 
 const PORT = process.env.PORT || 3001;
