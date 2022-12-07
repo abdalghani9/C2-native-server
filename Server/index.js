@@ -1,29 +1,20 @@
 import express from "express";
 import cors from "cors";
 import mysql from "mysql";
-// import "./GrantAccess";
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+// app.use(
+//   cors({
+//     origin: `${process.env.CLIENT_URL}`,
+//     methods: "GET,POST,PUT,DELETE",
+//     credentials: true,
+//   })
+// );
 
 const PORT = process.env.PORT || 3001;
-const app = express();
-app.use(express.json());
-app.use(
-  cors({
-    origin: `${process.env.CLIENT_URL}`,
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true,
-  })
-);
-
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// });
-
-// app.use(cors());
 
 const db = mysql.createConnection({
   host: "mogo", //localhost
