@@ -7,17 +7,8 @@ const corsOptions ={
    optionSuccessStatus:200,
 }
 app.use(cors(corsOptions)) 
-const app = express();
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authortization"
-  );
-  res.setHeader("Acces-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
-  next();
-});
+const app = express();
 
 app.use(express.json());
 
