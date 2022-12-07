@@ -17,7 +17,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 3001;
 
 const db = mysql.createConnection({
-  host: "mogo", //localhost
+  host: "localhost", //localhost
   user: "id19957532_mogo_user", //root
   password: "vq84qe|(t5iFKgUn", //""
   database: "id19957532_mogo", //test
