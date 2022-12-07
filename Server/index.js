@@ -17,10 +17,10 @@ app.use(express.json());
 const PORT = process.env.PORT || 3001;
 
 const db = mysql.createConnection({
-  host: "localhost", //localhost
-  user: "id19957532_mogo_user", //root
-  password: "vq84qe|(t5iFKgUn", //""
-  database: "id19957532_mogo", //test
+  host: "45.84.204.205", //localhost
+  user: "u701409675_test", //root
+  password: "hjBJxVB|;Zd5", //""
+  database: "u701409675_test", //test
 });
 
 let insert = "INSERT INTO messages (name,email,message)  VALUES (?,?,?)";
